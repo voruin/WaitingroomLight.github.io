@@ -56,8 +56,8 @@ let topic = 'lights';
 // a pushbutton to send messages
 let sendButton;
 // divs for the local and remote messages:
-let localDiv;
-let remoteDiv;
+// let localDiv;
+// let remoteDiv;
 
 // message to send, affecting the brightness of a light:
 let brightness = 0;
@@ -107,13 +107,19 @@ function setup() {
     // create a div for local messages:
     // localDiv = document.getElementById("sentMessage");
     // localDiv.innerHTML = 'local messages will go here';
-    localDiv = createDiv('local messages will go here');
-    localDiv.position(30, 400);
+//     localDiv = createDiv('local messages will go here');
+//     localDiv.position(30, 400);
     // create a div for the response:
     // remoteDiv = document.getElementById("gotMessage");
     // remoteDiv.innerHTML = 'waiting for messages';
-    remoteDiv = createDiv('waiting for messages');
-    remoteDiv.position(30, 430);
+//     remoteDiv = createDiv('waiting for messages');
+//     remoteDiv.position(30, 430);
+
+    let secondToHide = document.getElementsByClassName("loading-dots");
+    for (var i = 0; i < secondToHide.length; i++) {
+        // divsToHide[i].style.visibility = "hidden"; // or
+        secondToHide[i].style.display = "none"; // depending on what you're doing
+    }
 }
 
 function draw() {
@@ -127,7 +133,7 @@ function hideTag() {
 
 // called when the client connects
 function onConnect() {
-    localDiv.html('client is connected');
+//     localDiv.html('client is connected');
     client.subscribe(topic);
 }
 
@@ -136,7 +142,7 @@ function onConnectionLost(response) {
     if (response.errorCode !== 0) {
         // let connectionInfo= String('onConnectionLost:' + response.errorMessage);
         // localDiv.innerHTML = connectionInfo;
-        localDiv.html('onConnectionLost:' + response.errorMessage);
+//         localDiv.html('onConnectionLost:' + response.errorMessage);
     }
 }
 
@@ -144,7 +150,7 @@ function onConnectionLost(response) {
 function onMessageArrived(message) {
     // let gotShow= String('I got a message:' + message.payloadString);
     // remoteDiv.innerHTML = gotShow;
-    remoteDiv.html('I got a message:' + message.payloadString);
+//     remoteDiv.html('I got a message:' + message.payloadString);
     // let incomingNumber = parseInt(message.payloadString);
     // invert the message each time: 0, then 254, then 0, etc.:
     // if (incomingNumber > 0) {
@@ -181,19 +187,31 @@ function sendMqttMessage() {
         // send it:
         client.send(message);
         // print what you sent:
-        localDiv.html('I sent: ' + message.payloadString);
+//         localDiv.html('I sent: ' + message.payloadString);
         // let sentShow= String('I sent: ' + message.payloadString);
         // localDiv.innerHTML = sentShow;
+        let divsToHide = document.getElementsByClassName("pageOne");
+        for (var i = 0; i < divsToHide.length; i++) {
+            // divsToHide[i].style.visibility = "hidden"; // or
+            divsToHide[i].style.display = "none"; // depending on what you're doing
+        }
+        let buttonToHide = document.getElementById("sendButton");
+        buttonToHide.style.display = "none";
+
+        let secondToShow = document.getElementsByClassName("loading-dots");
+        for (var i = 0; i < secondToShow.length; i++) {
+            // divsToHide[i].style.visibility = "hidden"; // or
+            secondToShow[i].style.display = "initial"; // depending on what you're doing
+        }
+        let dotsColor1 = document.getElementById("dot_one");
+        dotsColor1.style.color = "#" + randomColorHEX;
+        let dotsColor2 = document.getElementById("dot_two");
+        dotsColor2.style.color = "#" + randomColorHEX;
+        let dotsColor3 = document.getElementById("dot_three");
+        dotsColor3.style.color = "#" + randomColorHEX;
+
     }
 
-
-    let divsToHide = document.getElementsByClassName("pageOne");
-    for (var i = 0; i < divsToHide.length; i++) {
-        // divsToHide[i].style.visibility = "hidden"; // or
-        divsToHide[i].style.display = "none"; // depending on what you're doing
-    }
-    let buttonToHide = document.getElementById("sendButton");
-    buttonToHide.style.display = "none";
 }
 
 function updateTime() {
@@ -220,9 +238,9 @@ function updateTime() {
 // }
 
 function buttonPressed() {
-let buttonToChange = document.getElementById("sendButton");
-buttonToChange.style.background = "#e058a7";
-buttonToChange.style.color = "#ffffff";
+    let buttonToChange = document.getElementById("sendButton");
+    buttonToChange.style.background = "#e058a7";
+    buttonToChange.style.color = "#ffffff";
 }
 
 function hexToRgb(hex) {
