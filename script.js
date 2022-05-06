@@ -173,7 +173,7 @@ function sendMqttMessage() {
         let colorDiv = document.getElementById("individualColor");
         colorDiv.style.backgroundColor = "#" + randomColorHEX;
 
-        let randomColor = [hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b]；
+        let randomColor = [hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b];
         let randomColorHSV = [rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).h,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).s,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).v];
 
         // color.innerHTML = "#" + randomColorHEX;
