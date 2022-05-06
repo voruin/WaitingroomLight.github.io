@@ -174,10 +174,8 @@ function sendMqttMessage() {
         colorDiv.style.backgroundColor = "#" + randomColorHEX;
 
         let randomColor = [hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b];
-        let randomColorHSV = [rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).h,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).s,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).v];
-
         // color.innerHTML = "#" + randomColorHEX;
-
+        let randomColorHSV = [rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).h,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).s,rgb2hsv(hexToRgb(randomColorHEX).r, hexToRgb(randomColorHEX).g, hexToRgb(randomColorHEX).b).v];
 
         let msg = JSON.stringify({ "name": patientName, "doctor": doctor, "apptTime": reservationTime, "subTime": timeNow, "color": randomColorHSV });
         //   let msg = String(brightness);
@@ -189,7 +187,7 @@ function sendMqttMessage() {
         // send it:
         client.send(message);
         // print what you sent:
-//         localDiv.html('I sent: ' + message.payloadString);
+        localDiv.html('I sent: ' + message.payloadString);
         // let sentShow= String('I sent: ' + message.payloadString);
         // localDiv.innerHTML = sentShow;
         let divsToHide = document.getElementsByClassName("pageOne");
@@ -257,6 +255,7 @@ function hexToRgb(hex) {
         b: b
     }
 }
+
 function rgb2hsv(r, g, b) {
     let rabs, gabs, babs, rr, gg, bb, h, s, v, diff, diffc, percentRoundFn;
     rabs = r / 255;
