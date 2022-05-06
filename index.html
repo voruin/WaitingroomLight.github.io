@@ -14,13 +14,16 @@
 
 <body>
     <form>
-    <h2 class="pageOne">Check-in Form</h2>
+        <div id="sendingWords">
+            <h2 class="loading-dots">Sending the color of YOU</h2>
+        </div>
+        <h2 class="pageOne">Check-in Form</h2>
         <label for="fname" class="pageOne">First name:</label>
         <input type="text" id="fname" name="fname" class="pageOne" required><br><br>
         <label for="lname" class="pageOne">Last name:</label>
         <input type="text" id="lname" name="lname" class="pageOne" required><br><br>
         <label for="doctorName" class="pageOne">Choose your doctor:</label>
-        <select id="doctorName" name="doctorName" class="pageOne"required>
+        <select id="doctorName" name="doctorName" class="pageOne" required>
             <option value="Gregory House" class="pageOne">Gregory House</option>
             <option value="John H. Watson" class="pageOne">John H. Watson</option>
         </select><br><br>
@@ -29,9 +32,16 @@
         <input type="time" id="appt" name="appt" min="09:00" max="18:00" class="pageOne" required><br><br><br>
         <input type="button" id="sendButton" name="sendButton" class="button"
             value="Submit"><br><br><br><br><br><br><br>
+        <div class="loading-dots">
+            <h1 id="dot_one" class="dot_one">.</h1><br>
+            <h1 id="dot_two" class="dot_two">.</h1><br>
+            <h1 id="dot_three" class="dot_three">.</h1><br>
+        </div>
         <div id="individualColor">
             <p></p>
-        </div>
+        </div><br>
+
+
         <!-- <div id="sentMessage"> </div>
         <div id="gotMessage"> </div> -->
     </form>
