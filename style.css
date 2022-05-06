@@ -121,6 +121,74 @@ body {
     margin-left: 30px;
 }
 
+.loading-dots {
+    text-align: center;
+    /* margin-left: 44%;
+    margin-right: 43%;
+    z-index: 5; */
+}
+
+.dot_one {
+    font-family: "Roboto", "Open Sans", sans-serif;
+    display: inline;
+    margin-left: 49%;
+    margin-right: 49%;
+    position: relative;
+    top: -1em;
+    font-size: 6em;
+    opacity: 0;
+    animation: showHideDot 2.5s ease-in-out infinite;
+    animation-delay: 0.6s;
+    color:#8e8e8e
+}
+
+.dot_two {
+    font-family: "Roboto", "Open Sans", sans-serif;
+    display: inline;
+    margin-left: 49%;
+    margin-right: 49%;
+    position: relative;
+    top: -1em;
+    font-size: 6em;
+    opacity: 0;
+    animation: showHideDot 2.5s ease-in-out infinite;
+    animation-delay: 0.4s;
+    color:#8e8e8e
+}
+
+.dot_three {
+    font-family: "Roboto", "Open Sans", sans-serif;
+    display: inline;
+    margin-left: 49%;
+    margin-right: 49%;
+    position: relative;
+    top: -1em;
+    font-size: 6em;
+    opacity: 0;
+    animation: showHideDot 2.5s ease-in-out infinite;
+    animation-delay: 0.2s;
+    color: #8e8e8e;
+}
+
+
+@keyframes showHideDot {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
 /* Page structure */
 .wrapper {
     min-height: var(--wrapper-height);
@@ -159,6 +227,7 @@ body {
 .instructions {
     margin: 1rem auto 0;
 }
+
 .button {
     font-family: inherit;
     font-size: 90%;
@@ -171,6 +240,9 @@ body {
     padding: 0.5rem 1rem;
     transition: 500ms;
 }
+
+
+
 
 /* Button - Add it from the README instructions */
 button,
@@ -200,7 +272,7 @@ select {
     background: #ccd4de;
     border: 0px solid #000000;
     box-sizing: border-box;
-    border-radius: 20px;
+    /* border-radius: 20px; */
     padding: 0.5rem 1rem;
     transition: 500ms;
     border-radius: 3px;
@@ -219,9 +291,9 @@ h2 {
 /*colorDiv*/
 #individualColor {
     margin: auto;
-    width: 12%;
+    width: 60%;
     padding: 10px;
-    height: 100px;
+    height: 700px;
     /* width: 150px; */
     background-color: #FFFFFF;
     /* border: 1px solid black; */
